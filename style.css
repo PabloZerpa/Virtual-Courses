@@ -460,6 +460,7 @@ main img
 {
     font-size: 16px;
     color: var(--navColor);
+    margin-right: 30px;
 }
 
 .more li
@@ -507,8 +508,10 @@ main img
 
 .tags
 {
+    margin-top: 5%;
+    margin-bottom: 5%;
     display: grid;
-    grid-template-columns: repeat(10,1fr);
+    grid-template-columns: repeat(10,0fr);
     gap: 10px;
     color: var(--navBgHover);
     font-size: 20px;
@@ -518,15 +521,116 @@ main img
 .tags p
 {
     border-radius: 3px;
-    background-color: chocolate;
-    opacity: 0.5;
+    color: rgb(221, 221, 221);
     text-align: center;
     padding: 5px;
+    cursor: pointer;
 }
 
-.tags p:hover
+.blue
 {
+    background-color:rgb(29, 93, 230)
+}
+.red
+{
+    background-color:rgb(233, 37, 70)
+}
+.yellow
+{
+    background-color:rgb(247, 182, 41)
+}
+.green
+{
+    background-color:rgb(66, 189, 103)
+}
+.pink
+{
+    background-color:rgb(192, 78, 158)
+}
+.purple
+{
+    background-color:rgb(97, 40, 143)
+}
+
+/*================================================== CATEGORY ==================================================*/
+
+.courses
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--navBgHover);
+    font-weight: bolder;
+}
+
+.courses h1
+{
+    font-size: 40px;
+}
+
+.courseArea
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 50px;
+}
+
+.courseButton
+{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(67, 182, 82);
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
-    opacity: 1;
-    transition: .75s;
+    margin: 10px 0 10px 0;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.courseButton:hover
+{
+    transform: translateY(-5px);
+    transition: 0.5s;
+}
+
+.course
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--navBg);
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.course img
+{
+    width: 500px;
+    height: 300px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.course:hover
+{
+    transform: translateY(-10px);
+    transition: 0.5s;
+}
+
+.courseTitle
+{
+    font-size: 30px;
+    margin: 10px 0 10px 0;
+}
+
+.courseDescription
+{
+    font-size: 20px;
+    margin: 10px 0 10px 0;
 }
