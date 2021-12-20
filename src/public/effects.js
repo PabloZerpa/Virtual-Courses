@@ -1,4 +1,4 @@
-
+console.log("ALO");
 let lightIcon = document.getElementById("light");
 let darkIcon = document.getElementById("dark");
 let searchIcon = document.getElementById("search");
@@ -11,6 +11,7 @@ let body = document.getElementById("body");
 let signUp = document.getElementById("showSignUp");
 let signIn = document.getElementById("showSignIn");
 
+//-------------------- CHANGE THEME --------------------
 darkIcon.addEventListener('click', () => 
 {
     document.body.classList.toggle("lightTheme");
@@ -24,7 +25,7 @@ lightIcon.addEventListener('click', () =>
     darkIcon.style.display = "block";
 })
 
-
+//-------------------- SEARCH EFFECTS --------------------
 searchIcon.addEventListener("click", function()
 {
     document.getElementById("searchArea").style.opacity = "1";
@@ -37,6 +38,7 @@ searchClose.addEventListener("click", function()
     document.getElementById("searchArea").style.transform = "scale(0.2)";
 });
 
+//-------------------- LOGIN AREA EFFECTS --------------------
 loginIcon.addEventListener("click", function()
 {
     document.getElementById("loginArea").style.opacity = "1";
@@ -49,7 +51,7 @@ loginClose.addEventListener("click", function()
     document.getElementById("loginArea").style.transform = "scale(0.2)";
 });
 
-
+//-------------------- CHANGE LOGIN AREA --------------------
 document.getElementById("showSignUp").addEventListener("click", function()
 {
     document.getElementById("signUpArea").style.display = "flex";
@@ -62,3 +64,48 @@ document.getElementById("showSignIn").addEventListener("click", function()
     document.getElementById("signInArea").style.display = "flex";
     document.getElementById("emailInput").focus();
 });
+
+
+// let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+// let request = new XMLHttpRequest();
+// request.open('GET', requestURL);
+// request.responseType = 'json';
+// request.send();
+
+// request.onload = function() {
+//   let superHeroes = request.response;
+//   showHeroes(superHeroes);
+// }
+
+// function showHeroes(jsonObj) {
+//   let heroes = jsonObj['members'];
+
+//   for(i = 0; i < heroes.length; i++) 
+//   {
+//     console.log(heroes[i].name);
+//     console.log(heroes[i].age);
+//     console.log(heroes[i].powers);
+//   }
+// }
+
+// const obtenerDatos = async () =>
+// {
+//     try
+//     {
+//         const datos = await axios.get("https://www.freetogame.com/api/games")
+//         console.log("Alo");
+//         console.log(datos.data);
+//     }
+//     catch(error)
+//     {
+//         console.log(error);
+//     }
+        
+// }
+
+// obtenerDatos();
+
+
+
+
+

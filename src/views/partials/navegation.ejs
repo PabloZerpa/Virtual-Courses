@@ -1,0 +1,51 @@
+
+    <nav id="nav">
+        <a href="./"><span class="logo"><i class="fas fa-chess-rook"></i></span></a>
+        <ul class="mainNav">
+            <a href="./"><li><i class="fas fa-home"></i>Home</li></a>
+            <a href="./courses"><li><i class="fas fa-graduation-cap"></i>Courses</li></a>
+            <a href="./category"><li><i class="fas fa-scroll"></i>Category</li></a>
+        </ul>
+        <ul class="userNav">
+
+            <li id="search"><i class="fas fa-search"></i><span id="searchSpan">Search</span></li>
+            <div id="searchArea" class="navArea">
+                <div class="searchForm">
+                    <input type="text" placeholder="Search" autofocus="autofocus" class="searchInput" id="searchInput">
+                    <input type="button" value="Close" class="closeButton" id="searchClose">
+                </div>
+            </div>
+
+            <li id="login"><i class="fas fa-user-astronaut"></i><span id="loginSpan">Login</span></li>
+            <div id="loginArea" class="navArea">
+
+                <div class="signInArea" id="signInArea">
+                    <input type="text" placeholder="Email" class="loginInput" id="emailInput">
+                    <input type="text" placeholder="Password" class="loginInput">
+                    <input type="button" value="Enter" class="loginEnter">
+                    <button class="loginButton">Sign In with Google <i class="fab fa-google"></i></button>
+                    <button class="loginButton">Sign In with Microsoft <i class="fab fa-microsoft"></i></button>
+                    <button class="loginButton">Sign In with Apple <i class="fab fa-apple"></i></button>
+                    <a>forgot password?</a>
+                    <button class="loginChange" id="showSignUp">Sign Up</button>
+                </div>
+
+                <div class="signUpArea" id="signUpArea">
+                    <h5>Sign Up</h5>
+                    <input type="text" placeholder="Username" class="loginInput" id="userNameInput">
+                    <input type="text" placeholder="Email" class="loginInput">
+                    <input type="text" placeholder="Password" class="loginInput">
+                    <input type="text" placeholder="Confirm Password" class="loginInput">
+                    <input type="button" value="Enter" class="loginEnter">
+                    <button class="loginButton">Sign Up with Google <i class="fab fa-google"></i></button>
+                    <button class="loginButton">Sign Up with Microsoft <i class="fab fa-microsoft"></i></button>
+                    <button class="loginButton">Sign Up with Apple <i class="fab fa-apple"></i></button>
+                    <button class="loginChange" id="showSignIn">Sign In</button>
+                </div>
+                <input type="button" value="Close" class="closeButton" id="loginClose">
+            </div>
+
+            <li id="light"><i class="fas fa-moon"></i><span>Dark</span id="lightSpan"></li>
+            <li id="dark"><i class="fas fa-sun"></i><span>Light</span id="darkSpan"></li>
+        </ul>
+    </nav>
