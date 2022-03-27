@@ -105,7 +105,31 @@ document.getElementById("showSignIn").addEventListener("click", function()
 
 // obtenerDatos();
 
+function createTag()
+{
+    let tags = document.getElementById("tags");
+    
+    const colors = ["blue","red","yellow","green","purple"];
+    const lenguages = ["Javascript","TypeScript","HTML","CSS","SASS","LESS",
+                        "Bootstrap","Tailwind","React","Vue","Angular","Next",
+                        "Nuxt","Svelte","Node","Deno","Express","SQL","NoSQL",
+                        "MySQL","MongoDB","PHP","Java","C#","Ruby","Go","C++","C","Rust",
+                        "Dart","Flutter","Python","R","Assemble","Kotlin","Swif","M"];
+    
+    let indexColor = 0;
+    for(let i of lenguages)
+    {
+        let tag = document.createElement("div");
+        tag.innerHTML = `<p class=${colors[indexColor]}>#${i}</p>`;
+        tags.appendChild(tag);
+        if(indexColor>3)
+            indexColor = 0;
+        else
+            indexColor++;
+    }
+    
+}
 
-
-
+createTag();
+console.log(tags);
 

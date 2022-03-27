@@ -5,7 +5,7 @@ const router = express.Router();
 //------------------------ ROUTER ------------------------------- 
 router.get("/", (req,res) => 
 {
-    console.log(__dirname, "views/index.ejs");
+    console.log(__dirname, "views/index");
     res.render("index", {title: "prueba"});
     //res.sendFile(path.join(__dirname, "views/index.html"));
 });
