@@ -18,7 +18,18 @@ router.get("/courses", (req,res) =>
 
 router.get("/category", (req,res) => 
 {
-    res.render("category", {title: "prueba"});
+    const lenguages = ["Javascript","TypeScript","HTML","CSS","SASS","LESS",
+                    "Bootstrap","Tailwind","React","Vue","Angular","Next",
+                    "Nuxt","Svelte","Node","Deno","Express","SQL","NoSQL",
+                    "MySQL","MongoDB","PHP","Java","C#","Ruby","Go","C++","C","Rust",
+                    "Dart","Flutter","Python","R","Assemble","Kotlin","Swif","M"];
+                    
+    res.render("category", 
+    {
+        title: "prueba",
+        lenguages: lenguages
+
+    });
     //res.sendFile(path.join(__dirname, "views/index.html"));
 });
 

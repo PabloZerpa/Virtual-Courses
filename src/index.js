@@ -1,8 +1,15 @@
 //------------------------------- SERVER -------------------------------
 const express = require("express");
 const morgan = require("morgan");
+const axios = require("axios");
 const path = require("path");
 const app = express();
+
+const youtubeKey = "AIzaSyBIjxF_ECsf6GdNCs4Tci47wNRYiCZxnJc";
+const apiUrl = "https://www.googleapis.com/youtube/v3";
+//const searchQuery = req.query.search_query;
+let search = "html";
+const url = `${apiUrl}/search?key=${youtubeKey}&type=video&part=snippet&q=${search}`;
 
 //------------------------------- SETTINGS ------------------------------- 
 app.set("port", process.env.PORT || 3000);
@@ -21,22 +28,41 @@ app.use(require("./routes/index.js"));
 //------------------------------- STATIC FILES ------------------------------- 
 app.use(express.static(path.join(__dirname, "public")));
 
-// const obtenerDatos = async () =>
+
+// let getData = () =>
 // {
-//     try
+//     fetch(`${apiUrl}/search?key=${youtubeKey}`)
+//     .then(response => 
 //     {
-//         const datos = await axios.get("https://www.freetogame.com/api/games")
-//         console.log("Alo");
-//         console.log(datos.data);
-//     }
-//     catch(error)
+//         return response.json
+//     })
+//     .then(data => 
 //     {
-//         console.log(error);
-//     }
-        
+//         console.log(data);
+//     })
+    
 // }
 
-// obtenerDatos();
+// getData();
+
+const obtenerDatos = async () =>
+{
+    try
+    {
+        const datos = await axios.get(url);
+        const title = datos.data.items.map((item) => item.snippet.title);
+        console.log("Alo");
+        console.log(title);
+        //console.log(datos.data);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+        
+}
+
+obtenerDatos();
 
 //------------------------------- START SERVER ------------------------------- 
 app.listen(app.get("port"), () =>
