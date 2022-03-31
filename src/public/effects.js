@@ -1,4 +1,4 @@
-console.log("ALO");
+
 let lightIcon = document.getElementById("light");
 let darkIcon = document.getElementById("dark");
 let searchIcon = document.getElementById("search");
@@ -65,43 +65,41 @@ document.getElementById("showSignIn").addEventListener("click", function()
     document.getElementById("emailInput").focus();
 });
 
+const apiKey = "AIzaSyDE3DtU3DtW_qqBe0KUmhrj11KNqByNk0Y";
+const apiUrl = "https://www.googleapis.com/youtube/v3";
+let url;
+let itemToSearch = ["react.js", "deno.js", "nuxt.js", "css", "c#", "java"];
+let videoUrls = ["", "", "", "", "", ""];
 
-// let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-// let request = new XMLHttpRequest();
-// request.open('GET', requestURL);
-// request.responseType = 'json';
-// request.send();
+const obtenerDato = async (search) =>
+{
+    let videoTitle;
+    let videoUrl;
 
-// request.onload = function() {
-//   let superHeroes = request.response;
-//   showHeroes(superHeroes);
-// }
-
-// function showHeroes(jsonObj) {
-//   let heroes = jsonObj['members'];
-
-//   for(i = 0; i < heroes.length; i++) 
-//   {
-//     console.log(heroes[i].name);
-//     console.log(heroes[i].age);
-//     console.log(heroes[i].powers);
-//   }
-// }
-
-// const obtenerDatos = async () =>
-// {
-//     try
-//     {
-//         const datos = await axios.get("https://www.freetogame.com/api/games")
-//         console.log("Alo");
-//         console.log(datos.data);
-//     }
-//     catch(error)
-//     {
-//         console.log(error);
-//     }
+    try
+    {
+        url = `${apiUrl}/search?key=${apiKey}&type=video&part=snippet&q=${search}`;
+        const datos = await axios.get(url);
+        videoTitle = datos.data.items.map((item) => item.snippet.title);
+        videoUrl = datos.data.items.map((item) => item.id.videoId);
+        console.log(datos.data);
+        console.log(videoTitle[0]);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+    return videoUrl[0];
         
-// }
+}
 
-// obtenerDatos();
+const obtenerVarios = async () =>
+{
+    for(i=0; i < itemToSearch.length; i++)
+    {
+        videoUrls[i] = obtenerDato(itemToSearch[i]);
+    }
+    console.log(videoUrls);
+}
 
+obtenerVarios();
