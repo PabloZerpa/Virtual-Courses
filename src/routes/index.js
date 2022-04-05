@@ -1,7 +1,6 @@
 
 const express = require("express");
 const router = express.Router();
-
 const axios = require("axios");
 
 //------------------------ ROUTER ------------------------------- 
@@ -14,29 +13,27 @@ router.get("/", (req,res) =>
 
 router.get("/courses", (req,res) => 
 {
-    (async() => {
 
         const apiKey = "AIzaSyDE3DtU3DtW_qqBe0KUmhrj11KNqByNk0Y";
         const apiUrl = "https://www.googleapis.com/youtube/v3";
         let url;
-        let itemToSearch = ["react.js", "deno.js", "nuxt.js", "css", "c#", "java"];
-        let videosTitles = ["", "", "", "", "", ""];
+        let itemToSearch = ["React.js", "Deno.js", "Nuxt.js", "CSS", "MySQL", "Java"];
+        //let videosTitles = ["", "", "", "", "", ""];
         let videosUrls = ["", "", "", "", "", ""];
 
-        const obtenerDato = async () =>
+        const obtenerDato = async (search) =>
         {
+            let dato;
+
             try
             {
-                url = `${apiUrl}/search?key=${apiKey}&type=video&part=snippet&q=${itemToSearch[i]}`;
+                url = `${apiUrl}/search?key=${apiKey}&type=video&part=snippet&q=${search}`;
                 await axios.get(url)
                 .then(response => {
-                    let videoTitle = response.data.items.map((item) => item.snippet.title);
+                    //let videoTitle = response.data.items.map((item) => item.snippet.title);
                     let videoUrl = response.data.items.map((item) => item.id.videoId);
-                    videosUrls[i] = "https://www.youtube.com/embed/" + videoUrl[0];
-                    videosTitles[i] = videoTitle[0];
-                    //console.log(datos.data);
-                    //console.log(videosTitles[i]);
-                    console.log("Dentro del axios: " + videosUrls[i]);
+                    dato = "https://www.youtube.com/embed/" + videoUrl[0];
+                    console.log("Dentro del axios: " + x);
 
                     });
 
@@ -45,33 +42,31 @@ router.get("/courses", (req,res) =>
             {
                 console.log(error);
             }
-            console.log("Dentro de la funcion: " + videosUrls[i]);
-            return videosUrls[i];
+            console.log("Dentro de la funcion: " + dato);
+            return dato;
             
         }
 
-       const obtenerVarios = async () =>
+       const obtenerUrls = async () =>
         {
-            for(i=0; i < itemToSearch.length; i++)
-            {
-                videosUrls[i] = await obtenerDato(itemToSearch[i]);
-            }
+            videosUrls[0] = await obtenerDato(itemToSearch[0]);
+            videosUrls[1] = await obtenerDato(itemToSearch[1]);
+            videosUrls[2] = await obtenerDato(itemToSearch[2]);
+            videosUrls[3] = await obtenerDato(itemToSearch[3]);
+            videosUrls[4] = await obtenerDato(itemToSearch[4]);
+            videosUrls[5] = await obtenerDato(itemToSearch[5]);
+
             console.log("Dentro de la otra funcion: " + videosUrls);
+
+            res.render("courses", 
+            {   
+                urls: videosUrls,
+                titles: itemToSearch,
+
+            });
         }
 
-        obtenerVarios();
-
-        res.render("courses", 
-        {   
-            title: "prueba",
-            urls: videosUrls,
-            titles: videosTitles,
-
-        });
-
-    })();
-
-    
+        obtenerUrls();
 });
 
 router.get("/category", (req,res) => 
