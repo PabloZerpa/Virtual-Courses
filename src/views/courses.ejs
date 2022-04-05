@@ -27,16 +27,18 @@
 
             <div class="courseArea">
 
-                <% videosUrl.forEach(function(url) { %>
+                <% for(i=0; i < urls.length; i++) { %>
                     <div class="course">
                         <iframe width="560" height="315" 
-                            src="https://www.youtube.com/embed/rbuYtrNUxg4" allowfullscreen>
+                            src=<%= urls[i] %> >
                         </iframe>
-                        <div class="courseTitle"><%= url %></div>
-                        <div class="courseDescription">Lorem ipsum dolor sit amet.</div>
+                        <div class="courseTitle"><%= titles[i] %></div>
+                        <!-- <div class="courseDescription"><%= titles[i] %></div> -->
                         <button class="courseButton">Enter</button>
                     </div>
-                <% }); %>
+
+                <% } %>
+                
                 
             </div>
 

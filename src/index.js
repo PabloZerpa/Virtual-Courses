@@ -23,6 +23,16 @@ app.use(require("./routes/index.js"));
 app.use(express.static(path.join(__dirname, "public")));
 
 
+// const obtenerVarios = async () =>
+// {
+//     for(i=0; i < itemToSearch.length; i++)
+//     {
+//         console.log(obtenerDato(itemToSearch[i]));
+//     }
+// }
+
+// obtenerVarios();
+
 //------------------------------- START SERVER ------------------------------- 
 app.listen(app.get("port"), () =>
 {
