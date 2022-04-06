@@ -7,8 +7,7 @@ const axios = require("axios");
 router.get("/", (req,res) => 
 {
     console.log(__dirname, "views/index");
-    res.render("index", {title: "prueba"});
-    //res.sendFile(path.join(__dirname, "views/index.html"));
+    res.render("index");
 });
 
 router.get("/courses", (req,res) => 
@@ -33,7 +32,6 @@ router.get("/courses", (req,res) =>
                     //let videoTitle = response.data.items.map((item) => item.snippet.title);
                     let videoUrl = response.data.items.map((item) => item.id.videoId);
                     dato = "https://www.youtube.com/embed/" + videoUrl[0];
-                    console.log("Dentro del axios: " + x);
 
                     });
 
@@ -42,21 +40,16 @@ router.get("/courses", (req,res) =>
             {
                 console.log(error);
             }
-            console.log("Dentro de la funcion: " + dato);
             return dato;
             
         }
 
        const obtenerUrls = async () =>
         {
-            videosUrls[0] = await obtenerDato(itemToSearch[0]);
-            videosUrls[1] = await obtenerDato(itemToSearch[1]);
-            videosUrls[2] = await obtenerDato(itemToSearch[2]);
-            videosUrls[3] = await obtenerDato(itemToSearch[3]);
-            videosUrls[4] = await obtenerDato(itemToSearch[4]);
-            videosUrls[5] = await obtenerDato(itemToSearch[5]);
-
-            console.log("Dentro de la otra funcion: " + videosUrls);
+            for (let i = 0; i < itemToSearch.length; i++) 
+            {
+                videosUrls[i] = await obtenerDato(itemToSearch[i]);
+            }
 
             res.render("courses", 
             {   
@@ -79,7 +72,6 @@ router.get("/category", (req,res) =>
                     
     res.render("category", 
     {
-        title: "prueba",
         lenguages: lenguages
 
     });
